@@ -73,16 +73,50 @@
 				document.getElementById("div-experiencias").appendChild(cln); 
 			});			
 		</script>
-		<?php
-		require_once (pdf/fpdf.php );
+		<? php
+
+
 		$nome =@$_POST{"Nome"};
 		$endereço =@$_POST{"Endereço"};
-		$telefone =@$_POST{"Idade"};
+		$telefone =@$_POST{"telefone"};
 		$datnasc =@$_POST{"Data de Nascimento"};
 		$estCiv =@$_POST{"Estado Civil"};
 		$escolaridade =@$_POST{"Escolaridade"};
 		$expPro =@$_POST{"Experiência Profissional"};
 		
+		require_once (fpdf/fpdf.php);
+		$pdf= new fpdf("P","pt","A4");
+		$pdf -> AddPage();
+		//nome
+		$pdf->SetFont('arial','B',12);
+		$pdf->Cell(70,20,"Nome:",0,0,'L');
+		$pdf->setFont('arial','',12);
+		//endereço
+		$pdf->SetFont('arial','B',12);
+		$pdf->Cell(70,20,"Endereço:",0,0,'L');
+		$pdf->setFont('arial','',12);
+		//telefone
+		$pdf->SetFont('arial','B',12);
+		$pdf->Cell(70,20,"Telefone:",0,0,'L');
+		$pdf->setFont('arial','',12);
+		//data nascimeto
+		$pdf->SetFont('arial','B',12);
+		$pdf->Cell(70,20,"Data de Nascimento:",0,0,'L');
+		$pdf->setFont('arial','',12);
+		//estado civil
+		$pdf->SetFont('arial','B',12);
+		$pdf->Cell(70,20,"Estado Civil:",0,0,'L');
+		$pdf->setFont('arial','',12);
+		//Escolaridade
+		$pdf->SetFont('arial','B',12);
+		$pdf->Cell(70,20,"Escolaridade:",0,0,'L');
+		$pdf->setFont('arial','',12);
+		//Experiencia profissional
+		$pdf->SetFont('arial','B',12);
+		$pdf->Cell(70,20,"Experiencia Profissional:",0,0,'L');
+		$pdf->setFont('arial','',12);
+
+
 		if (empty($nome)) $nome;
 		if (empty($endereço)) $endereço;
 		if (empty($telefone)) $telefone;
@@ -90,8 +124,8 @@
 		if (empty($estCiv)) $estCiv;
 		if (empty($escolaridade)) $escolaridade;
 		if (empty($expPro)) $expPro;
-		$pdf=new FPDF();
-		$pdf->ezpdf;
+		$pdf -> Output("daos.pdf","D") 		
+
 		?>
 
 		<div class="button">
