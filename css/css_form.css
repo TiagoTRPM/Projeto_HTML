@@ -15,3 +15,9 @@ body {
   background-color: lightblue;
   text-align: justify-all;
 }
+div-expericias {
+width: 90px;
+border-style: 0 auto;
+display: inline-table;
+}
+
