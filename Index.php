@@ -9,28 +9,29 @@
 </head>
 
 <body>
-	<form action="Index.php" method="Post">
+	<form action="gerarpdf.php" method="Post">
 		<h1>Bem vindo ao gerador de curriculum.</h1>
 		<h2>Insira os dados abaixo.</h2>
 		<div>
 			<label for="nome"> Nome </label>
-			<input type="text" id="nome" />
+			<input type="text" id="nome" name="nome" />
 		</div>
 		<div>
 			<label for="endereço"> Endereço </label>
-			<input type="text" id="Endereço" />
+			<input type="text" id="Endereço" name="endereço" />
 		</div>
 		<div>
 			<label for="telefone"> Telefone </label>
-			<input type="text" id="telefone" />
+			<input type="text" id="telefone"  name="telefone" />
 		</div>
 		<div>
 			<label for="idade"> Idade </label>
-			<input type="text" id="Idade" />
+			<input type="text" id="Idade" name="idade" />
 		</div>
 		<div>
+			
 			<label for="dat_nasc"> Data de Nascimento </label>
-			<input type="text" id="dat_nasc" />
+			<input type="text" id="dat_nasc" name="dat_nasc" />
 		</div>
 		<!-- Div que contem a caixa de seleção para selecionar o estado civil -->
 		<div>
@@ -46,7 +47,7 @@
 		<!--Div que contem uma caixa de seleção para selecionar escolaridade-->
 		<div> 
 		<label for="Escolaridade"> Escolaridade </label>
-			<select id="escolaridade">
+			<select id="escolaridade" name="escolaridade">
 			<option value=""></option>	
 			<option value="EFI"> Ensino Fundamental Incompleto</option>
 			<option value="EFC"> Ensino Fundamental Completo</option>
@@ -55,83 +56,27 @@
 			<option value="ESI"> Ensino Superior Incompleto</option>
 			<option value="ESC"> Ensino Superior Completo</option>
 		</select>
-		</div>		
-		<div class="div-experiencias">
+		</div>
+		<div class="linha"></div>		
 		<div id="div-experiencias">
 			<!--Div que contém os campos sobre experiência profissional-->
 			<div id="Experiencia">
 				<label for="Exp_Pro"> Experiência Profissional </label>
-				<input type="text" id="Experiencia" />
+				<input type="text" id ="Experiencia" class="linha" name="Experiencia" />
 			</div>
-		</div>
-		<button id="btnAddExperiencia">+ Adicionar Experiência </button>
+			</div>
+			<button id="btnAddExperiencia">+ Adicionar Experiência </button>
 		<script>
 			document.getElementById("btnAddExperiencia").addEventListener("click", function (event) { //Adiciona o evento de clique no botão btnAddExperiencia
 				event.preventDefault(); 
 				var itm = document.getElementById("Experiencia"); 
 				var cln = itm.cloneNode(true); 
 				document.getElementById("div-experiencias").appendChild(cln); 
-			});			
+			});
 		</script>
-		<? php
-
-
-		$nome =@$_POST{"Nome"};
-		$endereço =@$_POST{"Endereço"};
-		$telefone =@$_POST{"telefone"};
-		$datnasc =@$_POST{"Data de Nascimento"};
-		$estCiv =@$_POST{"Estado Civil"};
-		$escolaridade =@$_POST{"Escolaridade"};
-		$expPro =@$_POST{"Experiência Profissional"};
-		
-		require_once (fpdf/fpdf.php);
-		$pdf= new fpdf("P","pt","A4");
-		$pdf -> AddPage();
-		//nome
-		$pdf->SetFont('arial','B',12);
-		$pdf->Cell(70,20,"Nome:",0,0,'L');
-		$pdf->setFont('arial','',12);
-		//endereço
-		$pdf->SetFont('arial','B',12);
-		$pdf->Cell(70,20,"Endereço:",0,0,'L');
-		$pdf->setFont('arial','',12);
-		//telefone
-		$pdf->SetFont('arial','B',12);
-		$pdf->Cell(70,20,"Telefone:",0,0,'L');
-		$pdf->setFont('arial','',12);
-		//data nascimeto
-		$pdf->SetFont('arial','B',12);
-		$pdf->Cell(70,20,"Data de Nascimento:",0,0,'L');
-		$pdf->setFont('arial','',12);
-		//estado civil
-		$pdf->SetFont('arial','B',12);
-		$pdf->Cell(70,20,"Estado Civil:",0,0,'L');
-		$pdf->setFont('arial','',12);
-		//Escolaridade
-		$pdf->SetFont('arial','B',12);
-		$pdf->Cell(70,20,"Escolaridade:",0,0,'L');
-		$pdf->setFont('arial','',12);
-		//Experiencia profissional
-		$pdf->SetFont('arial','B',12);
-		$pdf->Cell(70,20,"Experiencia Profissional:",0,0,'L');
-		$pdf->setFont('arial','',12);
-
-
-		if (empty($nome)) $nome;
-		if (empty($endereço)) $endereço;
-		if (empty($telefone)) $telefone;
-		if (empty($datnsc)) $datnasc;
-		if (empty($estCiv)) $estCiv;
-		if (empty($escolaridade)) $escolaridade;
-		if (empty($expPro)) $expPro;
-		$pdf -> Output("daos.pdf","D") 		
-
-		?>
-
 		<div class="button">
-			<button type="submit"> Enviar agora </button>
-		</div>
+			<button type="submit"> Gerar arquivo </button>
+			</div>
 	</form>
 </body>
-
 </html>

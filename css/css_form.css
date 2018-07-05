@@ -8,16 +8,14 @@ form {
 }
 label {
   display: inline-table;
-  width: 90px;
+  width: 180px;
   text-align: justify-all;
 }
 body {
   background-color: lightblue;
   text-align: justify-all;
 }
-div-expericias {
-width: 90px;
-border-style: 0 auto;
-display: inline-table;
-}
 
+.linha{
+width:200px;
+}
