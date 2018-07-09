@@ -62,7 +62,7 @@
 			<!--Div que contém os campos sobre experiência profissional-->
 			<div id="experiencia">
 				<label for="Experiencia Profissional"> Experiência Profissional </label>
-				<input type="text" id ="experiencia" class="linha" name="experiencia" name="experiencias[]" />
+				<input type="text" id ="experiencia" class="linha"  name="experiencia"  name="experiencias[]" />
 			</div>
 			</div>
 			<button id="btnAddExperiencia">+ Adicionar Experiência </button>
