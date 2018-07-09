@@ -35,18 +35,18 @@
 		</div>
 		<!-- Div que contem a caixa de seleção para selecionar o estado civil -->
 		<div>
-			<label for="Estado civil"> Estado Civil </label>
+			<label for="Estado civil"> Estado Civil </label> <meta charset="utf-8">
 			<select id="est_civil" name="est_civil">  
 			<option value=""></option>
 			<option value="Solteiro(a)">Solteiro(a)</option>
 			<option value="Casado(a)">Casado(a)</option>
 			<option value="Divorciado(a)">Divorciado(a)</option>
-			<option value="Viuvo(a)">Viuvo(a)</option>	
+			<option value="Viúvo(a)">Viúvo(a)</option>	
 		</select>
 		</div>
 		<!--Div que contem uma caixa de seleção para selecionar escolaridade-->
 		<div> 
-		<label for="Escolaridade"> Escolaridade </label>
+		<label for="Escolaridade"> Escolaridade </label> <meta charset="utf-8">
 			<select id="escolaridade" name="escolaridade">
 			<option value=""></option>	
 			<option value="Ensino Fundamental Incompleto"> Ensino Fundamental Incompleto</option>
@@ -62,7 +62,7 @@
 			<!--Div que contém os campos sobre experiência profissional-->
 			<div id="experiencia">
 				<label for="Experiencia Profissional"> Experiência Profissional </label>
-				<input type="text" id ="experiencia" class="linha" name="experiencia" />
+				<input type="text" id ="experiencia" class="linha" name="experiencia" name="experiencias[]" />
 			</div>
 			</div>
 			<button id="btnAddExperiencia">+ Adicionar Experiência </button>
