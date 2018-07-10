@@ -1,13 +1,13 @@
 <?php  
-		$nome =@$_POST{"nome"};
-		$endereço =@$_POST{"endereço"};
-		$telefone =@$_POST{"telefone"};
-		$idade =@$_POST{"idade"};
-		$dat_nasc =@$_POST{"dat_nasc"};
-		$est_civil =@$_POST{"est_civil"};
-		$escolaridade =@$_POST{"escolaridade"};
-		$experiencia =@$_POST{"experiencia"};
-		$_POST{'experiencias[]'};
+		$nome =$_POST["nome"];
+		$endereço =$_POST["endereço"];
+		$telefone =$_POST["telefone"];
+		$idade =$_POST["idade"];
+		$dat_nasc =$_POST["dat_nasc"];
+		$est_civil =$_POST["est_civil"];
+		$escolaridade =$_POST["escolaridade"];
+		$experiencia =$_POST["experiencia"];
+		$experiencias=$_POST["experiencias[]"];
 		
 		require_once ('fpdf/fpdf.php');
 		$pdf= new fpdf("P","pt","A4");
@@ -52,14 +52,8 @@
 		$pdf->Cell(150,20,'Experiencia Profissional:',0,0,'L');
 		$pdf->setFont('helvetica','',12);
 		$pdf->Cell(70,20,$experiencia,5,1,'L');
-
-		ob_clean();
-
-		$exp = array();
-		foreach ($exp as $lista) {
-			echo $lista;
-		}
 		
+		ob_clean();
 
 		$pdf -> Output("dados.pdf","D"); 		
 		?>
