@@ -48,11 +48,13 @@
 		$pdf->setFont('helvetica','',12);
 		$pdf->Cell(70,20,utf8_decode($escolaridade),4,1,'L');
 		//Experiencia profissional
+		foreach ($experiencia as $exp) {
 		$pdf->SetFont('helvetica','B',12);
-		$pdf->Cell(150,20,'Experiencia Profissional:',0,0,'L');
+		$pdf->Cell(150,20,'Experiência Profissional:',0,0,'L');
 		$pdf->setFont('helvetica','',12);
-		$pdf->Cell(70,20,$experiencia,5,1,'L');
-		
+		$pdf->Cell(70,20,$exp,5,1,'L');
+		}
+
 		ob_clean();
 
 		$pdf -> Output("dados.pdf","D"); 		
